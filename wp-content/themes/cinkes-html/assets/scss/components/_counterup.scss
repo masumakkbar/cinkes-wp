@@ -1,0 +1,156 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+14. CounterUp
+******************************************************* 
+*************************************************************** */
+
+.cinkes_counterup_wrapper {
+    box-shadow: 0 13px 29px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.cinkes_counterup_single {
+    text-align: center;
+    position: relative;
+    padding: 60px 50px; 
+    padding-bottom: 70px;
+}
+
+
+.cinkes_counterup_single:before {
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #f94d1c;
+    border-radius: 50%;
+
+ 
+}
+
+.cinkes_counterup_wrapper {
+    .row {
+        & > * {
+            &:last-child {
+                .cinkes_counterup_single {
+                    &:before {
+                        display: none;
+                    }
+                    &:after {
+                        @media #{$xs} {
+                            display: none;
+
+                        }
+
+                    }
+                }
+            }
+            &:nth-child(1) {
+                .cinkes_counterup_single {
+                    &:after {
+                        @media #{$lg} {
+                            width: calc(100% - 180px);
+                            background-color: #f94d1c;
+                        }
+                        @media #{$xs} {
+                            width: 180px;
+                            background-color: #f94d1c;
+                        }
+                        @media #{$md, $sm} {
+                            width: calc(100% - 180px);
+                            background-color: #f94d1c;
+                        }
+                    }
+                    &:before {
+                        @media #{$xs} {
+                           display: none;
+                        }
+                        @media #{$sm} {
+                            display: block;
+                         }
+                    }
+                }
+            }
+            &:nth-child(2) {
+                .cinkes_counterup_single {
+                    &:after {
+                        @media #{$xs} {
+                            width: 180px;
+                            background-color: #f94d1c;
+                        }
+                        @media #{$md, $sm} {
+                            width: calc(100% - 180px);
+                            background-color: #f94d1c;
+                        }
+                    }
+                    &:before {
+                        @media #{$md, $xs} {
+                            display: none;
+                        }
+
+                    }
+                }
+            }
+            &:nth-child(3) {
+                .cinkes_counterup_single {
+                    &:after {
+                        @media #{$xs} {
+                            width: 180px;
+                            background-color: #f94d1c;
+                        }
+                        @media #{$sm} {
+                            width: 0;
+                        }
+                    }
+                    &:before {
+                        @media #{$lg, $xs} {
+                            display: none;
+                        }
+                        @media #{$sm} {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.cinkes_counterup_single:after {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    background-color: #f94d1c;
+    height: 5px;
+    content: "";
+    transform: translateX(-50%);
+    transition: 0.3s;
+    z-index: 1;
+}
+.cinkes_counterup_single:hover:after {
+    width: calc(100% - 180px);
+}
+
+
+.cinkes_count_number {
+    font-size: 38px;
+    font-weight: 500;
+    color: #f94d1c;
+}
+.cinkes_count_text {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+.cinkes_count_plus {
+    font-size: 25px;
+    transform: translateY(-10px);
+    display: inline-block;
+}
+

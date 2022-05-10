@@ -1,0 +1,188 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+10. Working Process
+******************************************************* 
+*************************************************************** */
+
+.cinkes_working_process_step_icon {
+    width: 150px;
+    height: 150px;
+    border: 1px dashed #333;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 180px;
+    margin-bottom: 30px;
+    & i {
+        font-size: 55px;
+        color: #F94D1C;
+        width: 115px;
+        height: 115px;
+        background-color: #111;
+        text-align: center;
+        line-height: 115px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(242, 244, 251);
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+    } 
+    & a {
+        &:hover {
+            & i {
+                background-color: #F94D1C;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.cinkes_working_process_step {
+    padding: 0 40px;
+    @media #{$xs} {
+        padding: 0 25px;
+    }
+}
+.cinkes_working_process_step1 {
+    position: relative;
+}
+
+.cinkes_working_process_step_title {
+    font-size: 26px;
+    font-weight: 500;
+    font-family: 'Poppins';
+    @media #{$xs} {
+        font-size: 23px;
+    }
+    & a {
+        text-decoration: none;
+    }
+    &:hover {
+        & a {
+            color: #F94D1C;
+        }
+    }
+}
+
+.cinkes_working_process_step_text {
+    & p {
+        letter-spacing: 1px;
+    }
+}
+
+
+
+.cinkes_working_process_step1 .cinkes_working_process_step_icon, .cinkes_working_process_step2 .cinkes_working_process_step_icon {
+    position: relative;
+}
+
+.cinkes_working_process_step1 .cinkes_working_process_step_icon:before, .cinkes_working_process_step2 .cinkes_working_process_step_icon:before {
+    position: absolute;
+    left: calc(100% + 25px);
+    top: 50%;
+    width: 255px;
+    content: "";
+    background-image: url(../img/shape/arrow_dot1.png);
+    height: 100px;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+    @media #{$xs, $md, $lg, $xl} {
+        display: none;
+    }
+}
+.cinkes_working_process_step2 .cinkes_working_process_step_icon:before {
+    background-image: url(../img/shape/arrow_dot2.png);
+    background-repeat: no-repeat;
+    left: calc(100% + 15px);
+    width: 265px;
+}
+
+/* Work service css */
+.cinkes_service_work {
+    background-color: #fff;
+    padding: 40px 35px;
+    padding-bottom: 35px;
+    position: relative;
+    z-index: 1;
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        content: "";
+        background-color: #f94d1c;
+        z-index: -1;
+        transition: 0.4s;
+    }
+}
+
+.cinkes_service_work_icon i {
+    font-size: 60px;
+    color: #f94d1c;
+    display: inline-block;
+    transition: 0.4s;
+}
+
+.cinkes_service_work_icon {
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.cinkes_service_work_title {
+    font-size: 20px;
+    font-weight: 500;
+        a {
+            text-decoration: none;
+            transition: 0.4s;
+        }
+}
+.cinkes_service_work_p {
+    margin-top: 25px;
+    transition: 0.4s;
+}
+
+.cinkes_service_work_btn {
+    margin-top: 5px;
+    display: inline-block;
+}
+.cinkes_service_work_btn i {
+    font-size: 30px;
+    color: #878c8f;
+    transition: 0.4s;
+}
+.cinkes_service_work {
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+        .cinkes_service_work_icon {
+            i {
+                color: #fff;  
+            }
+        }
+        .cinkes_service_work_title {
+            a {
+                color: #fff;
+            }
+        }
+        .cinkes_service_work_p {
+            color: #fff;
+        }
+        .cinkes_service_work_btn {
+            i {
+                color: #fff;
+                &:hover {
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+
+

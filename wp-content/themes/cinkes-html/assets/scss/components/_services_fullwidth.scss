@@ -1,0 +1,307 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+06. Service Fullwidth
+******************************************************* 
+*************************************************************** */
+
+.cinkes_services_fullwidth_wrapp {
+    display: flex;
+    align-items: center;
+    @media #{$xs, $md, $lg} {
+        flex-direction: column;
+    }
+}
+
+.cinkes_services_fullwidth_single {
+    display: flex;
+    flex: 0 0 50%;
+    justify-content: space-between;
+    padding: 50px;
+    padding-bottom: 25px;
+    border: 1px solid #dfe1e1;
+    align-items: center;
+    transition: 0.5s;
+    flex-wrap: wrap;
+    border-top: 0;
+    @media #{$xl} {
+        padding: 40px 30px;
+        padding-bottom: 15px;
+    }
+    @media #{$xs, $md, $lg} {
+        width: 100%;
+    }
+    @media #{$xs} {
+        padding: 40px 30px;
+        padding-bottom: 15px;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    @media #{$sm} {
+        justify-content: space-between;
+        text-align: start;
+        flex-direction: row;
+    }
+    & .cinkes_services_fullwidth_title {
+        margin-bottom: 0;
+    }
+
+    &:first-child {
+        border-right: 0;
+        @media #{$lg, $md, $xs} {
+            border-right: 1px solid #dfe1e1;
+            border-bottom: 0;
+        }
+    }
+    &:last-child {
+        @media #{$lg, $md, $xs} {
+            border-top: 1px solid #dfe1e1;
+        }
+    }
+}
+.cinkes_fullwidth_features_single:hover {
+    border-color: #fff;
+    box-shadow: 0 13px 29px rgba(0,0,0,0.1);
+}
+
+.cinkes_fullwidth_features_single:hover span.cinkes_fullwidth_number {
+    background-color: #1a1a1a;
+}
+
+.cinkes_services_fullwidth_single_content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @media #{$xs} {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    @media #{$sm} {
+        flex-direction: row;
+        justify-content: start;
+        margin-right: 15px;
+
+    }
+}
+
+.cinkes_services_fullwidth_icon {
+    margin-right: 30px;
+    color: #f94d1c;
+    line-height: 1;
+    @media #{$xl} {
+        margin-right: 25px;
+    }
+    @media #{$lg} {
+        margin-right: 20px;
+    }
+    @media #{$xs} {
+        margin-right: 0;
+    }
+    @media #{$sm} {
+        margin-right: 20px;
+    }
+}
+.cinkes_services_fullwidth_text {
+	margin-right: 20px;
+    @media #{$xs} {
+        margin-right: 0;
+    }
+    @media #{$sm} {
+        margin-right: 20px;
+    }
+}
+.cinkes_services_fullwidth_subtitle {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #f94d1c;
+    margin-bottom: 10px;
+    display: inline-block;
+    @media #{$xs} {
+        font-size: 16px;
+    }
+}
+
+.cinkes_services_fullwidth_title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #2b3132;
+    text-transform: uppercase;
+    @media #{$xl} {
+        font-size: 26px;
+    }
+    @media #{$xs} {
+        font-size: 24px;
+    }
+}
+
+.cinkes_services_btn {
+    height: 70px;
+    background-color: #f94d1c;
+    line-height: 70px;
+    padding: 0 25px;
+    display: inline-block;
+    color: #fff;
+    font-size: 30px;
+}
+.cinkes_services_btn:focus {
+    color: #fff;
+}
+.cinkes_services_btn:hover {
+    color: #fff;
+    background-color: #1a1a1a;
+}
+.bg_gray {
+    background-color: #f1f3f2;
+}
+
+.cinkes_fullwidth_features_single_inner {
+    padding: 45px 30px;
+    @media #{$lg} {
+        padding: 40px 30px;
+    }
+    @media #{$xs} {
+        padding: 40px 25px;
+    }
+    &  p {
+        font-size: 16px;
+        line-height: 2;
+        margin-bottom: 0;
+    }
+}
+
+.cinkes_fullwidth_features_single {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f1f1f1;
+    transition: 0.3s;
+    @media #{$xs, $md} {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.cinkes_fullwidth_number {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 35px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #f94d1c;
+    display: inline-block;
+    text-align: center;
+    flex: 0 0 100px;
+    font-family: $poppins;
+    transition: 0.5s;
+}
+
+.cinkes_fullwidth_single_title {
+    font-size: 26px;
+    font-weight: 500;
+    @media #{$xs} {
+        font-size: 23px;
+    }
+}
+.cinkes_fullwidth_services_area {
+    position: relative;
+}
+
+.cinkes_fullwidth_services_area_img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 40%;
+    height: 100%;
+    @media #{$xs, $md, $lg, $xl} {
+        max-width: 100%;
+        width: 100%;
+    }
+    &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background-color: #000;
+            opacity: 0.5;
+    }
+}
+.cinkes_fullwidth_services_area_img img {
+    height: 100%;
+    object-fit: cover;
+    @media #{$xs, $md, $lg, $xl} {
+        width: 100%;
+    }
+}
+.cinkes_white_bg {
+    background-color: #fff;
+}
+
+.cinkes_fullwidth_services_wrapper {
+    padding: 90px;
+    position: relative;
+    padding-bottom: 60px;
+    @media #{$xs} {
+        padding: 20px;
+        padding-bottom: 60px;
+        background-color: transparent;
+        
+    }
+
+    @media #{$md, $lg, $xl} {
+        padding: 60px;
+        padding-bottom: 60px;
+        background-color: transparent;
+        padding-top: 0px;
+    }
+}
+
+.cinkes_fullwidth_services_icon_box {
+    background-color: #fff;
+    box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.05);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(242, 244, 251);
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 5px;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.cinkes_fullwidth_services_icon_box i {
+    font-size: 60px;
+    margin-bottom: 25px;
+    color: #f94d1c;
+}
+
+.cinkes_fullwidth_seervice_icon_text {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-top: 25px;
+    & a {
+        text-decoration: none;
+    }
+}
+
+.cinkes_fullwidth_services_icon_box:hover {
+    background-color: #f94d1c;
+    box-shadow: 0 13px 29px rgba(0,0,0,0.01);
+}
+
+.cinkes_fullwidth_services_icon_box:hover i {
+    color: #fff;
+}
+
+.cinkes_fullwidth_services_icon_box:hover .cinkes_fullwidth_seervice_icon_text {
+    color: #fff;
+}

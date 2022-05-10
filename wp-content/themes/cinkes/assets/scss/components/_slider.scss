@@ -1,0 +1,229 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+03. Slider
+******************************************************* 
+*************************************************************** */
+
+.cinkes_slider_section {
+    display: flex;
+    align-items: center;
+    height: 798px;
+    @media #{$xs} {
+        height: 670px;
+    }
+}
+.cinkes_slide_height {
+    position: relative;
+}
+.cinkes_slide_wrapper {
+    position: relative;
+}
+.cinkes_slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-image: url(../img/shape/slide_overlay.png);
+        background-repeat: no-repeat;
+    }
+    &:after {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: calc((100% - calc(1690px - 24px))/2);
+        height: 100%;
+        background-color: #fff;
+        content: "";
+        @media #{$xxxl} {
+            width: calc((100% - calc(1550px - 24px))/2);  
+        }
+        @media #{$xxl} {
+            width: calc((100% - calc(1350px - 24px))/2);  
+        }
+        @media #{$xl, $lg} {
+            width: calc((100% - calc(100% - 24px))/2);  
+        }
+    }
+}
+.cinkes_shape_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.cinkes_shape1 {
+    position: absolute;
+    left: 60px;
+    top: 110px;
+}
+.cinkes_shape2 {
+    position: absolute;
+    left: 40px;
+    bottom: 110px;
+}
+.cinkes_shape3 {
+    position: absolute;
+    left: 650px;
+    top: 160px;
+}
+.cinkes_shape4 {
+    position: absolute;
+    left: 400px;
+    bottom: 20px;
+}
+.cinkes_slider_title {
+    font-size: 90px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    @media #{$md} {
+        font-size: 76px;
+    }
+    @media #{$xs} {
+        font-size: 46px;
+    }
+    @media #{$sm} {
+        font-size: 56px;
+    }
+}
+.cinkes_slider_content {
+    & p {
+        font-size: 30px;
+        font-weight: 600;
+        color: #1a1a1a;
+        line-height: 1.4;
+        @media #{$xs} {
+            font-size: 25px;
+        }
+    }
+}
+
+.cinkes_slider_area-1 {
+    position: relative;
+}
+.cinkes-swiper-pagination {
+        right: calc((100% - 1690px) / 2);
+        z-index: 3;
+        
+        & .swiper-pagination-bullet {
+            background-color: rgba(255,255,255,0.8);
+            opacity: 1;
+        }
+        & .swiper-pagination-bullet-active {
+            outline: 3px solid rgba(255,255,255,0.8);
+            border: 4px solid #8E776B;
+            background-color: #ffffff;
+        }
+    }
+
+.cinkes-swiper-pagination {
+    position: absolute;
+    right: calc((calc((100% - calc(1690px + 115px))/2))/2);
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%) rotate(90deg);
+    @media #{$xxxl} {
+        right: calc((calc((100% - calc(1550px + 115px))/2))/2);;
+    }
+    @media #{$xxl} {
+        right: calc((calc((100% - calc(1350px + 115px))/2))/2);;
+    }
+
+    @media #{$xs, $md, $lg, $xl} {
+        top: auto;
+        bottom: 40px;
+        transform: translateY(0);
+        right: 0;
+        left: 0;
+        text-align: center;
+    }
+
+    & .swiper-pagination-bullet {
+        width: 14px;
+        height: 14px;
+        margin: 0 5px;
+        background-color: #595959;
+    }
+    & .swiper-pagination-bullet-active {
+        outline: 2px solid #1a1a1a;
+        border: 4px solid #fff;
+        background-color: #1a1a1a;
+    }
+}
+.cinkes_slider_content.text-center.text-xxl-start {
+    @media #{$xl} {
+        padding: 0 90px;
+    }
+    @media #{$lg} {
+        padding: 0 50px;
+    }
+}
+
+    .swiper-container{
+        &.cinkes_testimonial_thumbs_active {
+            width: 23%;
+            margin: 0 auto;
+            @media #{$xs} {
+                width: 100%;
+            }
+        }
+    }
+
+
+    .cinkes_slider_area-2 {
+        position: relative;
+        .cinkes_slider_title {
+            color: #fff;
+        }
+        .cinkes_slider_content {
+            & p {
+                color: #fff;
+            }
+        }
+        .cinkes_slide-2 {
+            padding-top: 107px;
+            &:before {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                content: "";
+                background-color: #000;
+                opacity: 0.3;
+            }
+        }
+}
+        
+.cinkes_slider_area-2 .cinkes-swiper-pagination {
+    right: calc((100% - 1690px) / 2);
+    z-index: 3;
+    @media #{$xxxl} {
+        right: calc((100% - 1550px) / 2);
+    }
+    @media #{$xxl} {
+        right: calc((100% - 1350px) / 2);
+    }
+
+    @media #{$xs, $md, $lg, $xl} {
+        right: 0;
+        left: 0;
+    }
+    
+    & .swiper-pagination-bullet {
+        background-color: rgba(255,255,255,0.8);
+        opacity: 1;
+    }
+    & .swiper-pagination-bullet-active {
+        outline: 3px solid rgba(255,255,255,0.8);
+        border: 4px solid #8E776B;
+        background-color: #ffffff;
+    }
+}

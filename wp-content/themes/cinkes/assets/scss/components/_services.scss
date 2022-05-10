@@ -1,0 +1,492 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+07. Service
+******************************************************* 
+*************************************************************** */
+
+.services_area {
+    &:is(.pt-110) {
+        @media #{$xs} {
+            padding-top: 90px;
+        }
+    }
+}
+
+
+.cinkes_services_single_title {
+    font-size: 26px;
+    margin-bottom: 27px;
+    font-weight: 500;
+    @media #{$xs} {
+        font-size: 23px;
+    }
+    & a {
+        text-decoration: none;
+        &:hover {
+            color: #f94d1c;
+        }
+    }
+}
+
+
+.cinkes_services_single_icon {
+    margin: 40px auto 0;
+    display: block;
+    width: 175px;
+    height: 175px;
+    line-height: 175px;
+    border-radius: 50%;
+    background-color: #f1f3f2;
+    color: #f94d1c;
+    transition: 0.3s;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 75px; 
+
+}
+
+.cinkes_services_single {
+    padding: 50px 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f1f1f1;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    transition: 0.3s;
+    @media #{$xs} {
+        padding: 50px 25px;
+    }
+    @media #{$sm} {
+        padding: 50px 40px;
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 70px 0px rgba(23, 44, 221, 0.08);
+        border-color: transparent;
+        & .cinkes_services_single_icon {
+            color: #fff;
+            background-color: #f94d1c;
+        }
+    }
+}
+
+/* service 2 */
+.pt-240 {
+    padding-top: 240px;
+}
+.mbm-105 {
+    margin-bottom: -105px;
+}
+.grey_bg2 {
+    background-color: #f1f3f2;
+}
+.cinkes_service_item_2_title {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 25px;
+    color: #fff;
+    @media #{$md} {
+        font-size: 22px;
+    }
+    a {
+        text-decoration: none;
+        &:hover {
+            color: rgba(255,255,255,0.7);
+        }
+    }
+}
+
+.cinkes_service_item_2_icon img {
+    margin-bottom: 25px;
+    margin-right: 25px;
+    width: 70px;
+    height: 70px;
+    @media #{$md} {
+        margin-right: 20px;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.cinkes_service_item_2 {
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+    background-color: #f94d1c;
+    position: relative;
+    flex-wrap: wrap;
+    padding-bottom: 35px;
+
+}
+
+.cinkes_service_2_wrapper {
+    .row *:not(:last-child) > .cinkes_service_item_2 {
+        @media #{$xs} {
+            margin-bottom: 30px;
+        }
+    }
+}
+.cinkes_service_item_2:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    background-color: #1a1a1a;
+    content: "";
+}
+.cinkes_support_item {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    box-shadow: 0 13px 29px rgba(0,0,0,0.05);
+    border-radius: 5px;
+}
+
+.cinkes_support_item i {
+    font-size: 80px;
+    color: #f94d1c;
+}
+
+.cinkes_support_item_text {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+.cinkes_support_icon {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.cinkes_support_icon:before {
+    position: absolute;
+    left: -15px;
+    top: 0px;
+    width: 60px;
+    height: 60px;
+    content: "";
+    background-color: #f3f3f3;
+    border-radius: 50%;
+    z-index: -1;
+}
+.cinkes_service2_item {
+    background-color: #fff;
+    box-shadow: 0 13px 29px rgba(0,0,0,0.05);
+    padding: 40px;
+    transition: 0.3s;
+    border-radius: 5px;
+    &:hover {
+        box-shadow: 0 13px 29px rgba(0,0,0,0.09);
+        border-radius: 5px;
+    }
+}
+
+.cinkes_service2_item_icon {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-bottom: 35px;
+    & i {
+        color: #f94d1c;
+    }
+}
+.cinkes_service2_item_icon:before {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #f3f3f3;
+    content: "";
+    border-radius: 50%;
+    z-index: -1;
+    transform: translateY(-50%);
+    left: calc(100% - 20px);
+}
+
+.cinkes_service2_item_icon i {
+    font-size: 60px;
+}
+
+.cinkes_service2_item_title {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 27px;
+    a {
+        text-decoration: none;
+        &:hover {
+            color: #f94d1c;
+        }
+    }
+}
+
+
+/*  Service Details  */
+
+.trans_pt-340 {
+    padding-top: 340px;
+}
+.sidebar_input {
+    display: block;
+    position: relative;
+}
+.sidebar_input {
+    &::before {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        content: "\f007";
+        font-family: 'Font Awesome 5 Pro';
+        color: #f94d1c;
+    }
+    input {
+        width: 100%;
+        height: 65px;
+        border: 0;
+        padding: 0 20px;
+        border-radius: 5px;
+        font-size: 15px;
+        color: #878c8f;
+    }
+    }
+.sidebar_textarea {
+    position: relative;
+    textarea {
+        width: 100%;
+        height: 200px;
+        border: 0;
+        padding: 20px;
+        border-radius: 5px;
+        font-size: 15px;
+
+    }
+    &::before {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        content: "\f2b6";
+        font-family: 'Font Awesome 5 Pro';
+        color: #f94d1c;
+    }
+}
+
+.sidebar_send_btn {
+    height: 60px;
+    border: 0;
+    line-height: 60px;
+    background-color: red;
+    background-color: #f94d1c;
+    padding: 0px 35px;
+    border-radius: 5px;
+    color: #fff;
+    transition: 0.3s;
+    &:hover {
+        background-color: #000;
+        color: #fff;
+    }
+}
+
+.cinkes_sidebar_download {
+    a {
+        font-size: 17px;
+        font-weight: 700;
+        font-family: 'Poppins';
+        text-decoration: none;
+        height: 65px;
+        line-height: 65px;
+        background-color: #fff;
+        padding: 0 20px;
+        border-radius: 5px;
+        color: #1a1a1a;
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        &:hover {
+            color: #f94d1c;
+        }
+        span {
+            float: right;
+        }
+    }
+}
+
+.service_details_title {
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    @media #{$xs} {
+        font-size: 24px;
+    }
+}
+
+.s_details_video_bg {
+    position: relative;
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-color: #1a1a1a;
+        opacity: 0.2;
+    }
+    img {
+        min-height: 180px;
+        object-fit: cover;
+    }
+}
+
+.s_details_video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    line-height: 90px;
+    background-color: #f94d1c;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    &:hover {
+        & i {
+            color: #fff;
+            font-weight: 700;
+        }
+    }
+
+    i {
+        transition: 0.3s;
+    }
+
+    &:focus {
+        i {
+          color: #fff;
+        }
+    }
+}
+
+
+.dew_shape {
+    &:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #fff;
+        animation-name: popupBtn;
+        animation-duration: 1.8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #fff;
+        animation-name: popupBtn;
+        animation-duration: 1.8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-delay: 0.8s;
+    }
+}
+
+@keyframes popupBtn {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+
+.details_tab_wrapper {
+    ul {
+        li {
+            button {
+                border: 0;
+                background-color: #f1f3f2;
+                color: #fff;
+                height: 60px;
+                line-height: 60px;
+                padding: 0 40px;
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 500;
+                font-family: 'Poppins';
+                border: 1px solid #dbdddf;
+                &:is(.active) {
+                    background-color: #f94d1c;
+                    color: #fff;
+                    border-color: #f94d1c;
+                }
+            }
+
+        }
+    }
+}
+
+.sd_tab_title {
+    font-size: 26px;
+    @media #{$xs} {
+        font-size: 22px;
+    }
+}
+
+.sd_tab_text_right {
+    ul {
+        li {
+            list-style: none;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            &:before {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 7px;
+                height: 7px;
+                content: "";
+                background-color: #1a1a1a;
+                border-radius: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.cinkes_service_details_wrapper.mr-30 {
+    @media #{$xs, $md} {
+        margin-right: 0;
+    }
+}
+
+.sd_tab_img {
+    @media #{$xs, $md, $lg} {
+        margin-bottom: 35px;
+    }
+}

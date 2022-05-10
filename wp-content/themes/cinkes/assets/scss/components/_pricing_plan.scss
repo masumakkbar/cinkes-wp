@@ -1,0 +1,153 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+13. Pricing Plan
+******************************************************* 
+*************************************************************** */
+
+.cinkes_pricing_plan_area.pricing_bg {
+    position: relative;
+    &:is(.pb-90) {
+        @media #{$xs, $md, $lg} {
+            padding-bottom: 120px;
+        }
+    }
+} 
+.cinkes_pricing_plan_wrapper {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(232, 231, 231);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    padding: 55px;
+    position: relative;
+    @media #{$xs} {
+        padding: 55px 30px;
+    }
+    @media #{$sm} {
+        padding: 55px 40px;
+    }
+    
+}
+.cinkes_pricing_plan_wrapper-2 { 
+    &:is(.active) {
+        border-color: transparent;
+        box-shadow: 0px 0px 70px 0px rgba(23, 44, 221, 0.08);
+    }
+}
+    
+
+.pricing_tag {
+    width: 45px;
+    height: 50px;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    right: 20px;
+    top: -10px;
+    position: absolute;
+}
+
+.cinkes_pricing_plan_header_title {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+
+}
+
+.cinkes_pricing_plan_rating a {
+    font-size: 14px;
+    color: #ff5e14;
+    & i {
+        font-weight: 600;
+    }
+}
+
+.cinkes_pricing_plan_rating {
+    margin-bottom: 20px;
+}
+
+.cinkes_pricing_plan_price sup {
+    font-size: 25px;
+    color: #f94d1c;
+    transform: translateY(-5px);
+    display: inline-block;
+}
+
+.cinkes_pricing_plan_price {
+    font-size: 50px;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 1;
+}
+
+.cinkes_pricing_plan_price sub {
+    font-size: 12px;
+    font-family: $opensans;
+}
+
+.cinkes_pricing_plan_content ul {
+    margin: 0;
+    padding: 0;
+}
+
+.cinkes_pricing_plan_content ul li {
+    list-style: none;
+}
+
+.cinkes_pricing_plan_content ul li i {
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ebebeb;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.cinkes_pricing_plan_content ul li {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.cinkes_pricing_plan_action_btn {
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    height: 60px;
+    line-height: 60px;
+    background-color: #1a1a1a;
+    display: inline-block;
+    padding: 0 45px;
+    border-radius: 50px;
+    color: #fff;
+    font-family: $poppins;
+}
+.cinkes_pricing_plan_action_btn:hover { 
+    color: #fff;
+    background-color: #f94d1c;
+}
+.cinkes_pricing_plan_action_btn:focus { 
+    color: #fff;
+}
+
+.cinkes_pricing_plan_content ul li:last-child {
+    margin-bottom: 0;
+}
+.active .pricing_tag {
+    background-color: #f94d1c;
+}
+
+.active .cinkes_pricing_plan_action_btn {
+    background-color: #f94d1c;
+}

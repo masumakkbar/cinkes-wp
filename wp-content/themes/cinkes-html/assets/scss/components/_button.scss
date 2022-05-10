@@ -1,0 +1,71 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+05. Button
+******************************************************* 
+*************************************************************** */
+
+.cinkes_btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+.black_hover {
+    &:hover {
+        background-color: #000;
+        color: #fff;
+    }
+    &:focus {
+        color: #fff;
+    }
+}
+
+.slide_btn {
+    height: 80px;
+    border-radius: 50px;
+    background-color: #f94d1c;
+    display: inline-block;
+    line-height: 80px;
+    padding: 0 45px;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: $poppins;
+    font-weight: 600;
+    &:hover {
+        background-color: #1a1a1a;
+        color: #fff;
+    }
+    &:focus {
+        color: #fff;
+    }
+}
+
+
+.cinkes_about_btn {
+    display: inline-block;
+    height: 65px;
+    line-height: 65px;
+    background-color: #F94D1C;
+    color: #fff;
+    padding: 0 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Poppins';
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    @media #{$md} {
+        padding: 0 30px;
+    }
+    &:hover {
+        background-color: #1a1a1a;
+        color: #fff;
+    }
+    &:focus {
+        color: #fff;
+    }
+}

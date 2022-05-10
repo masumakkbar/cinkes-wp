@@ -1,0 +1,58 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+18. CTA
+******************************************************* 
+*************************************************************** */
+
+.cinkes_cta_area {
+    background-size: cover;
+}
+.cinkes_cta_subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.cinkes_cta_title {
+    font-size: 40px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 0;
+    @media #{$xs} {
+        font-size: 33px;
+    }
+    @media #{$sm} {
+        font-size: 38px;
+    }
+}
+
+.cinkes_cta_btn {
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    height: 75px;
+    line-height: 75px;
+    padding: 0 30px;
+    background-color: #000;
+    display: inline-block;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.cinkes_cta_btn:focus {
+    color: #fff;
+}
+.cinkes_cta_btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+.i_right i {
+    margin-left: 10px;
+    display: inline-block;
+}

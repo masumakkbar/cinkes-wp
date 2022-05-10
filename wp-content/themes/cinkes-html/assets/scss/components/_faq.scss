@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as *;
+
+
+/*
+************
+*************************
+21. FAQ
+******************************************************* 
+*************************************************************** */
+
+.cinkes_faq_single_item_heading {
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 0;
+    @media #{$xs} {
+        text-align: start;
+    }
+    @media #{$sm} {
+        text-align: start;
+    }
+    
+}
+
+.cinkes_faq_single_item_button {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    text-align: start;
+}
+
+.cinkes_faq_single_item {
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+.cinkes_faq_single_item_body p {
+    margin-bottom: 0;
+}
+
+.cinkes_faq_single_item_button {
+    position: relative;
+    transition: 0.3s;
+}
+
+.cinkes_faq_single_item_button[aria-expanded="false"]:before {
+    content: "\f107";
+    font-family: 'Font Awesome 5 Pro';
+    transition: 0.3s;
+    background-color: #f5f5f5;
+    padding: 0 5px;
+    color: #1a1a1a;
+    margin-right: 15px;
+}
+
+.cinkes_faq_single_item_button[aria-expanded="true"]:before {
+    content: "\f106";
+    font-family: 'Font Awesome 5 Pro';
+    transition: 0.3s;
+    background-color: #f5f5f5;
+    padding: 0 5px;
+    color: #1a1a1a;
+    margin-right: 15px;
+}
+
+.cinkes_faq_wrapper {
+    &:is(.ml-20) {
+        @media #{$xs, $md} {
+            margin-left: 0;
+        }
+    }
+    &:is(.mr-20) {
+        @media #{$xs, $md} {
+            margin-right: 0;
+        }
+    }
+}

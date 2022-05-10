@@ -1,0 +1,134 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+20. Contact
+******************************************************* 
+*************************************************************** */
+
+.cinkes_gmap_section iframe {
+    width: 100%;
+    height: 550px;
+}
+.cinkes_getintouch_title {
+    font-size: 48px;
+    @media #{$xs} {
+        font-size: 36px;
+    }
+}
+.cinkes_contact_single_icon i {
+    font-size: 50px;
+    color: #f94d1c;
+    @media #{$xs} {
+        font-size: 30px;
+    }
+    @media #{$sm} {
+        font-size: 40px;
+    }
+}
+
+.cinkes_contact-single_info {
+    display: flex;
+}
+
+.cinkes_contact_single_icon {
+    margin-right: 20px;
+}
+
+.cinkes_contact_single_title {
+    font-size: 27px;
+    @media #{$xs} {
+        font-size: 22px;
+    }
+    @media #{$sm} {
+        font-size: 25px;
+    }
+}
+.cinkes_contact_single_text p, .cinkes_contact_single_text a {
+    font-size: 16px;
+    color: #878c8f;
+    line-height: 1.68;
+
+}
+.cinkes_contact_single_text a {
+    text-decoration: none;
+    font-weight: 500;
+}
+.cinkes_contact_single_text a:hover {
+    color: #f94d1c;
+}
+.cinkes_contact_form input {
+    width: 100%;
+    border: 1px solid #dfe1e1;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 25px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    color: #878c8f;
+    font-size: 15px;
+}
+
+.cinkes_contact_form textarea {
+    width: 100%;
+    border: 1px solid #dfe1e1;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 30px;
+    color: #878c8f;
+    font-size: 15px;
+}
+
+.cinkes_submit_btn {
+    font-size: 16px;
+    border: 0;
+    background-color: #f94d1c;
+    ;
+    height: 60px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0 40px;
+    display: inline-block;
+    width: auto;
+    transition: 0.3s;
+}
+
+.cinkes_submit_btn:hover {
+    background-color: #000;
+}
+.cinkes_contact_form textarea::placeholder, .cinkes_contact_form input::placeholder {
+    color: #878c8f;
+}
+.cinkes_contact_form .nice-select {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 15px;
+    color: #878c8f;
+    padding: 0 25px;
+    border: 1px solid #dfe1e1;
+    margin-bottom: 30px;
+    &::after {
+        border-bottom: 1px solid #878c8f;
+        border-right: 1px solid #878c8f;
+        content: '';
+        height: 8px;
+        margin-top: -4px;
+        right: 25px;
+        top: 50%;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        width: 8px;
+    }
+}
+
+.cinkes_contact_form .nice-select.open ul.list {
+    width: 100%;
+}
+
+.cinkes_contact_form .nice-select.open ul.list li {
+    height: 60px;
+    line-height: 60px;
+    padding: 0 25px;
+}

@@ -1,0 +1,55 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+04. Section Title
+******************************************************* 
+*************************************************************** */
+
+.theme_clr {
+    color: #f94d1c;
+}
+br {
+    @media #{$xs} {
+        display: none;
+    }
+}
+.cinkes_sub_title {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    @media #{$xs} {
+        font-size: 18px;
+    }
+}
+.cinkes_title {
+    @media #{$xs}{
+        font-size: 33px;
+    }
+    @media #{$sm}{
+        font-size: 38px;
+    }
+}
+.cinkes_sub_title:before {
+    position: absolute;
+    left: calc(100% + 20px);
+    top: 50%;
+    width: 40px;
+    content: "";
+    height: 3px;
+    background-color: #f94d1c;
+}
+.cinkes_sub_title:after {
+    position: absolute;
+    right: calc(100% + 20px);
+    top: 50%;
+    width: 40px;
+    content: "";
+    height: 3px;
+    background-color: #f94d1c;
+}
+.theme_clr:before {
+    background-color: #f94d1c;
+}
+

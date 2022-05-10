@@ -1,0 +1,304 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+15. Presentation
+******************************************************* 
+*************************************************************** */
+.mtm192 {
+    margin-top: -192px;
+}
+.cinkes_video_presentation_wrapper {
+    &:is(.mtm192) {
+        @media #{$xs, $md, $lg} {
+            margin-top: 0;
+        }
+    }
+}
+.p-rel {
+    position: relative;
+    z-index: 1;
+}
+.gray_bg {
+    background-color: #f1f3f2;
+}
+.cinkes_video_flex {
+    min-height: 670px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-size: cover;
+    padding: 30px;
+    @media #{$xs} {
+        min-height: 400px;
+        padding: 25px;
+
+    }
+    @media #{$sm} {
+        min-height: 600px;
+        padding: 30px;
+    }
+
+}
+.cinkes_video_flex:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: rgb(26, 26, 26);
+    opacity: 0.651;
+    z-index: -1;
+
+}
+.video_presentation_text {
+    font-size: 48px;
+    font-weight: 500;
+    color: #fff;
+    @media #{$xs} {
+        font-size: 25px;
+    }
+    @media #{$sm} {
+        font-size: 36px;
+    }
+    @media #{$md} {
+        font-size: 40px;
+    }
+}
+
+.video_presentation_btn {
+    color: #fff;
+    width: 90px;
+    height: 90px;
+    background-color: #f94d1c;
+    line-height: 90px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 18px;
+}
+.video_presentation_btn:focus {
+    color: #fff;
+}
+.video_presentation_btn i {
+    font-weight: 700;
+}
+.cinkes_consultation_title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 30px;
+    @media #{$md}{
+        font-weight: 500;
+    }
+}
+
+.cinkes_consultation_form input {
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    text-transform: capitalize;
+    color: #1a1a1a;
+    border: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.cinkes_consultation_form textarea {
+    width: 100%;
+    height: 150px;
+    border: 0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.cinkes_consultation_form select {
+    height: 65px;
+    width: 100%;
+    border: 0;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.cinkes_consultation_form .nice-select {
+    width: 100%;
+    height: 65px;
+    margin-bottom: 20px;
+    line-height: 65px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #878c8f;
+    padding: 0 20px;
+    font-size: 16px;
+    &:active, &.open, &:focus{
+        border-color: inherit;
+        border: none;
+    }
+
+    &::after {
+        border-bottom: 1px solid #878c8f;
+        border-right: 1px solid #878c8f;
+        content: '';
+        height: 8px;
+        margin-top: -4px;
+        right: 25px;
+        top: 50%;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        width: 8px;
+    }
+
+}
+.cinkes_consultation_form .nice-select.open ul.list {
+    width: 100%;
+}
+
+.cinkes_consultation_form .nice-select.open ul.list li {
+    height: 65px;
+    line-height: 65px;
+}
+
+.cinkes_consultation_form button[type="submit"] {
+    height: 65px;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 16px;
+    padding: 0 20px;
+    border: 0;
+    line-height: 65px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.5s;
+}
+.cinkes_consultation_form button[type="submit"]:hover {
+    background-color: #fff;
+    color: #1a1a1a;
+}
+
+.cinkes_free_consultaion_wrapper {
+    padding: 60px 50px;
+    background-color: #f94d1c;
+    border-radius: 5px;
+    @media #{$xs} {
+        padding: 40px 25px;
+    }
+    @media #{$sm} {
+        padding: 50px 40px;
+    }
+    &:is(.ml-50) {
+        @media #{$xs, $md, $lg} {
+            margin-left: 0;
+        }
+    }
+}
+.cinkes_about_btn.radius_5 {
+    border-radius: 5px;
+}
+.mtm_100 {
+    margin-top: -100px;
+}
+.cinkes_consultation_area {
+    &:is(.mtm_100) {
+        @media #{$xs, $md, $lg} {
+            margin-top: 15px;
+        }
+    }
+}
+.cinkes_testimonial_thumbs_active .swiper-wrapper .swiper-slide img {
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.cinkes_testimonial_message_single {
+    margin: 0 50px;
+
+    @media #{$xs}{
+        margin: 0 25px;
+    }
+}
+
+.cinkes_testimonial_thumbs_active .swiper-wrapper .swiper-slide-thumb-active  img {
+    opacity: 1;
+}
+  
+
+
+/* test */
+.bg_white {
+    background-color: #fff;
+}
+.cinkes_benefits_area {
+    position: relative;
+}
+.cinkes_benefit_bg_img {
+    position: absolute;
+    left: 0;
+    top: -100px;
+    z-index: 2;
+    height: calc(100% + 100px);
+    width: 46%;
+
+    @media #{$md, $lg} {
+        height: auto;
+        width: calc(100% - 100px);
+        left: 50px;
+        right: 50px;
+        margin-top: -195px;
+        position: relative;
+        z-index: 1;
+        top: 0;
+    }
+    @media #{$xs} {
+        height: auto;
+        width: calc(100% - 30px);
+        left: 15px;
+        right: 15px;
+        margin-top: -188px;
+        position: relative;
+        z-index: 1;
+        top: 0;
+    }
+    @media #{$sm} {
+        width: calc(100% - 90px);
+        left: 30px;
+        right: 30px;
+        margin-top: -190px;
+    }
+}
+
+.cinkes_benefit_bg_img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cinkes_video_presentation_area-2 .cinkes_video_flex {
+    padding-bottom: 300px;
+    padding-top: 110px;
+}
+
+.cinkes_benefits_content_wrapper {
+    @media #{$xs} {
+        padding: 0;
+    }
+    @media #{$sm} {
+        padding: 0 15px;
+    }
+  }
+  .cinkes_benefit_content_wrapper.bg_white.pt-115 {
+    @media #{$xs, $md, $lg} {
+        padding-top: 60px;
+    }
+}

@@ -1,0 +1,88 @@
+
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+19. Breadcrumb
+******************************************************* 
+*************************************************************** */
+
+.pt-230 {
+    padding-top: 230px;
+}
+.pb-240 {
+    padding-bottom: 240px;
+}
+.trans-header-pt {
+    padding-top: 335px;
+}
+.cinkes_breadcrumb_area {
+    &:is(.pt-230) {
+        @media #{$xs} {
+            padding-top: 180px;
+        }
+    }
+    &:is(.pb-240) {
+        @media #{$xs} {
+            padding-bottom: 190px;
+        }
+    }
+}
+.cinkes_breadcrumb_title {
+    font-size: 72px;
+    color: #fff;
+    font-weight: 700;
+    @media #{$md} {
+        font-size: 60px;
+    }
+    @media #{$xs} {
+        font-size: 40px;
+    }
+    @media #{$sm} {
+        font-size: 42px;
+    }
+}
+
+.breadcrumbs ul li a, .breadcrumbs ul li span {
+    font-size: 20px;
+    color: #fff;
+    font-family: $poppins;
+    font-weight: 500;
+    @media #{$xs} {
+        font-size: 16px;
+    }
+    @media #{$sm} {
+        font-size: 18px;
+    }
+}
+
+.breadcrumbs ul li {
+    display: inline-block;
+    position: relative;
+}
+
+.breadcrumbs ul li:not(:last-child):before {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 10px;
+    height: 3px;
+    content: "";
+    background-color: #fff;
+    transform: translateY(-50%);
+    margin-top: 1px;
+}
+
+.breadcrumbs ul li:not(:last-child) {
+    margin-right: 25px;
+}
+
+.breadcrumbs ul li a {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.breadcrumbs ul li a:hover {
+    color: #f94d1c;
+} 

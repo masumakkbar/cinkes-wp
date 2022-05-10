@@ -1,0 +1,236 @@
+@use '../abstracts/variables' as *;
+
+/*
+************
+*************************
+16. Testimonial
+******************************************************* 
+*************************************************************** */
+
+.w_100 img{
+    width: 100%;
+}
+
+.cinkes_message {
+    font-size: 28px;
+    line-height: 1.75;
+    color: #2b3132;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    @media #{$xs} {
+        font-size: 18px;
+    }
+    @media #{$sm} {
+        font-size: 22px;
+    }
+}
+.cinkes_testimonial_rating a i {
+    font-size: 14px;
+    font-weight: 900;
+    color: #f94d1c;
+}
+
+.cinkes_testimonial_rating {
+    margin-bottom: 10px;
+}
+
+.cinkes_testimonial_customer_name {
+    font-size: 20px;
+    font-weight: 500;
+    color: #f94d1c;
+}
+
+.cinkes_testimonial_customer_name .cinkes_customer_review {
+    font-size: 14px;
+    color: #878c8f;
+    font-weight: 400;
+    margin-left: 10px;
+    @media #{$xs}{
+        display: block;
+        margin-top: 10px;
+    }
+}
+.cinkes_testimonial_message_navigation div {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 1;
+    font-size: 40px;
+    transform: translateY(-50%);
+    @media #{$xs}{
+        font-size: 35px;
+        top: 47%;
+    }
+}
+
+.cinkes_testimonial_thumb {
+    position: relative;
+
+}
+
+.cinkes_testimonial_thumb .cinkes_testimonial_thumbs_active {
+    padding: 0;
+    @media #{$xs} {
+        padding: 0 35px;
+    }
+}
+
+.cinkes_testimonial_message_navigation div.cinkes_testimonial_next {
+    left: auto;
+    right: 0;
+}
+
+.cinkes_testimonial_message_navigation div:hover {
+    color: #f94d1c;
+}
+.cinkes_testimonial_pagination.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background-color: #878c8f;
+    border-radius: 50%;
+    outline: 2px solid #878c8f;
+    border: 6px solid #fff;
+    transition: 0.5s;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.cinkes_testimonial_pagination.swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    outline: 2px solid #f94d1c;
+    border: 6px solid #fff;
+    width: 50px;
+    height: 15px;
+    background-color: #f94d1c;
+    border-radius: 50px;
+}
+
+.cinkes_testimonial_pagination.swiper-pagination-bullets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px;
+    padding-top: 40px;
+}
+
+
+/* Testimonial Single Page */
+
+.cinkes_testimonial_spage_wrapper {
+    box-shadow: 0px 0px 70px 0px rgba(23, 44, 221, 0.08);
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 70px;
+    overflow: hidden;
+    @media #{$md} {
+        padding-bottom: 80px;
+    }
+    @media #{$xs} {
+        padding: 50px 30px;
+        padding-bottom: 60px;
+    }
+    @media #{$sm} {
+        padding: 60px 40px;
+        padding-bottom: 70px;
+    }
+}  
+.cinkes_testimonial_spage_message {
+    font-size: 17px;
+    line-height: 2;
+    @media #{$xs, $md} {
+        text-align: center;
+    }
+}
+
+.cinkes_testimonial_spage_author {
+    display: flex;
+    @media #{$xs, $md} {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.cinkes_testimonial_spage_author_img {
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 85px;
+    height: 100%;
+    overflow: hidden;
+    @media #{$xs, $md} {
+        margin-bottom: 25px;
+        margin-right: 0px;
+    }
+}
+
+.cinkes_testimonial_spage_author_name {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.cinkes_testimonial_spage_author_designation {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.cinkes_testimonial_spage_author_rating a {
+    font-size: 14px;
+    color: #ff5e14;
+}
+.swiper-slide-active .cinkes_testimonial_spage_content {
+    position: relative;
+    padding-right: 85px;
+    @media #{$lg} {
+        padding-right: 50px;
+    }
+    @media #{$xs, $md} {
+        padding-right: 0;
+    }
+}
+.swiper-slide-active .cinkes_testimonial_spage_content:before {
+    position: absolute;
+    right: -15px;
+    top: 0;
+    width: 1px;
+    height: calc(100% - 20px);
+    content: "";
+    background-color: #ddd;
+    @media #{$xs, $md} {
+        display: none;
+    }
+}
+.swiper-slide-next .cinkes_testimonial_spage_content {
+    padding-left: 85px;
+    padding-right: 0;
+    @media #{$lg} {
+        padding-left: 50px;
+    }
+    @media #{$xs, $md} {
+        padding-left: 0;
+    }
+}
+.cinkes_testimonial_spage_navigation {
+    & div {
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        background-color: #f94d1c;
+        text-align: center;
+        color: #fff;
+        transition: 0.3s;
+        &:hover {
+            background-color: #000;
+        }
+        &:focus {
+            background-color: #000;
+        }
+    }
+}
+.cinkes_testimonial_spage_prev {
+    border-radius: 50% 0 0 50%;
+}
+.cinkes_testimonial_spage_next {
+    border-radius: 0 50% 50% 0;
+}
