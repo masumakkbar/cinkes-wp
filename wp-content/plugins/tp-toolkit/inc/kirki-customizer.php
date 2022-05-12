@@ -9,14 +9,59 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-
+if ( ! class_exists( 'Kirki' ) ) {
+	return;
+}
 /**
  * Added Panels & Sections
  */
+
+
+
+add_action('sg_customizer_partial', 'hello');
+
 function cinkes_customizer_panels_sections( $wp_customize ) {
+    /**
+    * selective refresh
+    */
+    $wp_customize->selective_refresh->add_partial('cinkes_header_top_welcome_text_partial', array(
+        'selector' => '.cinkes_header_address_info',
+        'settings' => 'cinkes_header_top_welcome_text',
+        'render_callback' => function() {
+            return get_theme_mod('cinkes_header_top_welcome_text');
+        }
+    ));
+
+
+    /**
+    * customizer panel
+    */
+    $wp_customize->add_panel( 'tp_general_widget', [
+        'priority'    => 10,
+        'title' => esc_html__( 'TP Widgets', 'tp-toolkit' ),
+        'description' => esc_html__( 'You can customize the TP widgets.', 'tp-toolkit' ),
+    ] );
     /**
      * Customizer Section
      */
+    $sections = array (
+        '_social_list_section' => array(
+            esc_attr__( 'Social Title', 'tp-toolkit' ),
+            esc_attr__( 'You can customize the social list widget description.', 'tp-toolkit' )
+        )
+    );
+    foreach($sections as $section_id => $section ) {
+        $section_args = array(
+            'title' => $section[0],
+            'description' => $section[1],
+            'panel' => 'tp_general_widget',
+            'capability'  => 'edit_theme_options'
+        );
+        if ( isset( $section[2] ) ) {
+            $section_args['type'] = $section[2];
+        }
+        $wp_customize->add_section( str_replace( '-', '_', $section_id ), $section_args );
+    }
     $wp_customize->add_section( 'theme_essential_setting', [
         'title'       => esc_html__( 'Essential Setting', 'cinkes' ),
         'description' => '',
@@ -98,8 +143,20 @@ function cinkes_customizer_panels_sections( $wp_customize ) {
 
 add_action( 'customize_register', 'cinkes_customizer_panels_sections' );
 
-function _theme_essential_fields( $fields ) {
 
+function _theme_essential_fields( $fields ) {
+    $fields[] = [
+        'type'     => 'switch',
+        'settings' => 'futexo_topbar_switch',
+        'label'    => esc_html__( 'Topbar Swicher', 'futexo' ),
+        'section'  => 'header_top_setting',
+        'default'  => '0',
+        'priority' => 10,
+        'choices'  => [
+            'on'  => esc_html__( 'Enable', 'futexo' ),
+            'off' => esc_html__( 'Disable', 'futexo' ),
+        ],
+    ];
     $fields[] = [
         'type'     => 'switch',
         'settings' => 'cinkes_preloader',
@@ -147,7 +204,7 @@ add_filter( 'kirki/fields', '_theme_essential_fields' );
 /*
 Header Settings
  */
-function _header_header_fields( $fields ) {
+function _header_fields( $fields ) {
 
 
     $fields[] = [
@@ -246,6 +303,7 @@ function _header_header_fields( $fields ) {
         'section'  => 'section_header_settings',
         'default'  => esc_html__( 'Wellcome To Our Financial Company', 'cinkes' ),
         'priority' => 10,
+        'transport' =>'postMessage',
         'active_callback' => [
             [
                 'setting'  => 'cinkes_header_top_welcome_text_switch',
@@ -2018,7 +2076,33 @@ function _header_header_fields( $fields ) {
 
     return $fields;
 }
-add_filter( 'kirki/fields', '_header_header_fields' );
+add_filter( 'kirki/fields', '_header_fields' );
+
+function _tp_widget_customize($fields) {
+    $fields[] = array(
+        'type' => 'repeater',
+        'settings' => 'tp_social_list_widget',
+        'label' => esc_attr__( 'Social List Widget', 'tp-toolkit' ),
+        'description' => esc_attr__( 'You can set social icons.', 'tp-toolkit' ),
+        'section' => '_social_list_section',
+        'fields' => array(
+            'social_icon' => array(
+                'type' => 'text',
+                'label' => esc_attr__( 'Icon', 'tp-toolkit' ),
+                'description' => esc_attr__( 'You can set an icon. for example; "facebook"', 'tp-toolkit' ),
+            ),
+
+            'social_url' => array(
+                'type' => 'text',
+                'label' => esc_attr__( 'URL', 'tp-toolkit' ),
+                'description' => esc_attr__( 'You can set url for the item.', 'tp-toolkit' ),
+            ),
+
+        ),
+    );
+    return $fields;
+}
+add_filter( 'kirki/fields', '_tp_widget_customize' );
 
 /*
 Header Side Info
@@ -2823,7 +2907,18 @@ function _header_footer_fields( $fields ) {
     /*
     cmt_section_footer_1: start section Footer 1
     */
-
+    $fields[] = [
+        'type'     => 'Radio_Buttonset',
+        'settings' => 'footer_buttonset',
+        'label'    => esc_html__( 'footer Customize', 'cinkes' ),
+        'section'  => 'footer_setting',
+        'default'  => 'content',
+        'priority' => 10,
+        'choices'     => [
+            'content'   => esc_html__( 'Content', 'cinkes' ),
+            'style' => esc_html__( 'Style', 'cinkes' ),
+        ],
+    ];
     $fields[] = [
         'type'        => 'select',
         'settings'    => 'footer_widget_limit',
@@ -2843,7 +2938,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
     $fields[] = [
@@ -2866,10 +2966,38 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
-
+    $fields[] = [
+        'type'     => 'Select',
+        'settings' => 'footer_background_select',
+        'label'    => esc_html__( 'Background Options', 'cinkes' ),
+        'section'  => 'footer_setting',
+        'default'  => 'background-image',
+        'priority' => 10,
+        'choices'     => [
+            'background-image' => esc_html__( 'Background Image', 'cinkes' ),
+            'background-color' => esc_html__( 'Background Color', 'cinkes' ),
+        ],
+        'active_callback' => [
+            [
+                'setting'  => 'choose_default_footer',
+                'operator' => '==',
+                'value'    => 'footer-style-1',
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'style',
+            ],
+        ],
+    ];
     $fields[] = [
         'type'        => 'image',
         'settings'    => 'footer_bg_image',
@@ -2882,10 +3010,126 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
+            ],
+            [
+                'setting'  => 'footer_background_select',
+                'operator' => '==',
+                'value'    => 'background-image',
             ]
         ],
     ];
-
+    $fields[] = [
+        'type'     => 'Select',
+        'settings' => 'footer_background_size',
+        'label'    => esc_html__( 'Background Size', 'cinkes' ),
+        'section'  => 'footer_setting',
+        'default'  => 'cover',
+        'priority' => 10,
+        'choices'     => [
+            'cover' => esc_html__( 'Cover', 'cinkes' ),
+            'auto' => esc_html__( 'Auto', 'cinkes' ),
+            'contain' => esc_html__( 'Contain', 'cinkes' ),
+            'inherit' => esc_html__( 'Inherit', 'cinkes' ),
+            'initial' => esc_html__( 'Initial', 'cinkes' ),
+            'revert' => esc_html__( 'Revert', 'cinkes' ),
+            'unset' => esc_html__( 'Unset', 'cinkes' ),
+            '100% 100%' => esc_html__( '100% 100%', 'cinkes' ),
+            '50% 50%' => esc_html__( '50% 50%', 'cinkes' ),
+        ],
+        'active_callback' => [
+            [
+                'setting'  => 'choose_default_footer',
+                'operator' => '==',
+                'value'    => 'footer-style-1',
+            ],
+            [
+                'setting'  => 'footer_background_select',
+                'operator' => '==',
+                'value'    => 'background-image',
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'style',
+            ],
+        ],
+    ];
+    $fields[] = [
+        'type'     => 'Select',
+        'settings' => 'footer_background_position_select',
+        'label'    => esc_html__( 'Background Image Position', 'cinkes' ),
+        'section'  => 'footer_setting',
+        'default'  => 'center center',
+        'priority' => 10,
+        'choices'     => [
+            'center center' => esc_html__( 'Center Center', 'cinkes' ),
+            'center top' => esc_html__( 'Center Top', 'cinkes' ),
+            'center bottom' => esc_html__( 'Center Bottom', 'cinkes' ),
+            'right center' => esc_html__( 'Right Center', 'cinkes' ),
+            'right top' => esc_html__( 'Right Top', 'cinkes' ),
+            'right bottom' => esc_html__( 'Right Bottom', 'cinkes' ),
+            'left center' => esc_html__( 'Left Center', 'cinkes' ),
+            'left top' => esc_html__( 'Left Top', 'cinkes' ),
+            'left bottom' => esc_html__( 'Left Bottom', 'cinkes' ),
+            '100% 100%' => esc_html__( '100% 100%', 'cinkes' ),
+            '50% 50%' => esc_html__( '50% 50%', 'cinkes' ),
+            'initial' => esc_html__( 'Initial', 'cinkes' ),
+            'inherit' => esc_html__( 'Inherit', 'cinkes' ),
+        ],
+        'active_callback' => [
+            [
+                'setting'  => 'choose_default_footer',
+                'operator' => '==',
+                'value'    => 'footer-style-1',
+            ],
+            [
+                'setting'  => 'footer_background_select',
+                'operator' => '==',
+                'value'    => 'background-image',
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'style',
+            ],
+        ],
+    ];
+    $fields[] = [
+        'type'     => 'Select',
+        'settings' => 'footer_background_blendmode_select',
+        'label'    => esc_html__( 'Background Image Blendmode', 'cinkes' ),
+        'section'  => 'footer_setting',
+        'default'  => 'normal',
+        'priority' => 10,
+        'choices'     => [
+            'normal' => esc_html__( 'Normal', 'cinkes' ),
+            'multiply' => esc_html__( 'Multiply', 'cinkes' ),
+            'overlay' => esc_html__( 'Overlay', 'cinkes' ),
+            'darken' => esc_html__( 'Darken', 'cinkes' ),
+            'lighten' => esc_html__( 'Lighten', 'cinkes' ),
+            'color-dodge' => esc_html__( 'Color-dodge', 'cinkes' ),
+            'saturation' => esc_html__( 'Saturation', 'cinkes' ),
+            'color' => esc_html__( 'Color', 'cinkes' ),
+            'luminosity' => esc_html__( 'Luminosity', 'cinkes' ),
+        ],
+        'active_callback' => [
+            [
+                'setting'  => 'choose_default_footer',
+                'operator' => '==',
+                'value'    => 'footer-style-1',
+            ],
+            [
+                'setting'  => 'footer_background_select',
+                'operator' => '==',
+                'value'    => 'background-image',
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'style',
+            ],
+        ],
+    ];
     $fields[] = [
         'type'        => 'color',
         'settings'    => 'footer_bg_color',
@@ -2899,9 +3143,21 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_background_select',
+                'operator' => '==',
+                'value'    => 'background-color',
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'style',
+            ],
         ],
     ];
+
+
 
     $fields[] = [
         'type'     => 'switch',
@@ -2915,7 +3171,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -2936,7 +3197,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -2957,7 +3223,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -2983,7 +3254,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -3009,7 +3285,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -3035,7 +3316,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -3061,7 +3347,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -3077,7 +3368,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -3093,7 +3389,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -3114,7 +3415,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 
@@ -3135,7 +3441,12 @@ function _header_footer_fields( $fields ) {
                 'setting'  => 'choose_default_footer',
                 'operator' => '==',
                 'value'    => 'footer-style-1',
-            ]
+            ],
+            [
+                'setting'  => 'footer_buttonset',
+                'operator' => '==',
+                'value'    => 'content',
+            ],
         ],
     ];
 

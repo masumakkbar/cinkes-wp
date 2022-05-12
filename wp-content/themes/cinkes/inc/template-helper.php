@@ -472,7 +472,7 @@ function cinkes_breadcrumb_func() {
         $breadcrumb_title_from_page[get_breadcrumb_page_by_id_specific2($i)] .= get_theme_mod('breadcrumb_title_'.get_breadcrumb_page_by_id_specific2($i).'');
       }
       $title_from_customizer = get_the_title();
-      if(!is_home() && !is_archive() && !is_single()) {
+      if(!is_home() && !is_archive() && !is_single() && !is_404()) {
         $breadcrumb_title_specific = get_theme_mod('breadcrumb_title_'.$select_breadcrumb_page.'');
         $breadcrumb_title = $breadcrumb_title_specific;
         $title_from_customizer = wp_kses_post( $breadcrumb_title_from_page[get_queried_object_id()]);

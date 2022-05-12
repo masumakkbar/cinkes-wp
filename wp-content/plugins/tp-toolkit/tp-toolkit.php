@@ -1,6 +1,7 @@
 <?php 
-if ( !defined('ABSPATH') )
+if ( !defined('ABSPATH') ) { 
     exit;
+}
 
 /*
 Plugin Name: TP Toolkit
@@ -24,6 +25,9 @@ final class TP_toolkit {
 	private static $instance;
 	function __construct() {
 		require_once TP_TOOLKIT_DIR . '/inc/custom-post.php';
+		require_once TP_TOOLKIT_DIR . '/inc/class-tp-kirki.php';
+		require_once TP_TOOLKIT_DIR . '/inc/kirki-customizer.php';
+		require_once TP_TOOLKIT_DIR . '/widgets/widget-social-list.php';
 	}
 
 	public static function instance() {

@@ -110,7 +110,7 @@ $copyright_menu_center = !empty($copyright_text) ? 'text-lg-end text-center' : '
  ?>
 
 <!-- cinkes_footer_area-start -->
-<div class="cinkes_footer_area">
+<div class="cinkes_footer_area" data-background="<?php echo esc_url($footer_bg_image); ?>">
     <?php if( !empty($footer_1_top_switch) ) : ?>
     <div class="cinkes_footer_top_area">
         <div class="container">

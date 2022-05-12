@@ -52,6 +52,13 @@ function cinkes_setup() {
 			)
 		)
 	);
+	add_theme_support( 'post-formats', [
+        'image',
+        'audio',
+        'video',
+        'gallery',
+        'quote',
+    ] );
 	add_theme_support( 'customize-selective-refresh-widgets' );
 	add_theme_support(
 		'custom-logo',
@@ -184,9 +191,7 @@ require CINKES_THEME_INC . 'template-helper.php';
 require CINKES_THEME_INC . 'custom-header.php';
 require CINKES_THEME_INC . 'template-tags.php';
 require CINKES_THEME_INC . 'template-functions.php';
-include_once CINKES_THEME_INC . 'kirki-customizer.php';
 include_once CINKES_THEME_INC . '/style/php/customizer-style.php';
-include_once CINKES_THEME_INC . 'class-cinkes-kirki.php';
 include_once CINKES_THEME_INC . 'class-wp-bootstrap-navwalker.php';
 include_once CINKES_THEME_INC . 'class-ocdi-importer.php';
 require_once CINKES_THEME_INC . 'class-tgm-plugin-activation.php';

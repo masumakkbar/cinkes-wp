@@ -172,9 +172,13 @@ function cinkes_customizer_styling() { ?>
 }
 <?php } ?>
 <?php if (get_theme_mod( 'breadcrumb_bg_img_ovelay_color_opacity' )) { ?>
-.breadcrumb_overlay:before {
-	opacity: <?php echo esc_attr(get_theme_mod( 'breadcrumb_bg_img_ovelay_color_opacity' ) ); ?>;
-}
+	.breadcrumb_overlay:before {
+		opacity: <?php echo esc_attr(get_theme_mod( 'breadcrumb_bg_img_ovelay_color_opacity' ) ); ?>;
+	}
+<?php } else {?>
+	.breadcrumb_overlay:before {
+		opacity: 0;
+	}
 <?php } ?>
 <?php if (get_theme_mod( 'breadcrumb_background_position_select' )) { ?>
 .cinkes_breadcrumb_area {
@@ -191,6 +195,29 @@ function cinkes_customizer_styling() { ?>
 	background-blend-mode: <?php echo esc_attr(get_theme_mod( 'breadcrumb_background_blendmode_select' ) ); ?>;
 }
 <?php } ?>
+
+/***
+* Footer Style 01
+*/
+<?php if (get_theme_mod( 'footer_background_size' )) { ?>
+.cinkes_footer_area {
+	background-size: <?php echo esc_attr(get_theme_mod( 'footer_background_size' ) ); ?>;
+}
+<?php } ?>
+<?php if (get_theme_mod( 'footer_background_position_select' )) { ?>
+.cinkes_footer_area {
+	background-position: <?php echo esc_attr(get_theme_mod( 'footer_background_position_select' ) ); ?>;
+}
+<?php } ?>
+<?php if (get_theme_mod( 'footer_background_blendmode_select' )) { ?>
+.cinkes_footer_area {
+	background-blend-mode: <?php echo esc_attr(get_theme_mod( 'footer_background_blendmode_select' ) ); ?>;
+}
+<?php } ?>
+
+
+
+
 
 
 </style>
